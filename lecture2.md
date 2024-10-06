@@ -30,5 +30,17 @@ Ex: T(n)=4T(n/2)+n
   - T(n)=cn^2+n **//fail to use substitution method**
   - Assume: T(k)≤c1k^2-c2k for k<n
   - T(n)=c1n^2-2c2n+n=c1n^2-c2n-(c2n-n)≤c1n^2-c2n if c2n-n≥0 e.g. c2>1, c1-c2>=T(1)(**base case**)
+ 
+## Recursion-tree method
+Ex: T(n)=T(n/4)+T(n/2)+n^2
+- compute it level by level and the number of level is bounded
+
+## Master method
+applies to recurrences of the form **T(n)=aT(n/b)+f(n)**, where a≥1, b>1, f(n) is asymptotically positive(f(n)>0 for n>n0)
+### compare f(n) with n^logb a
+1. f(n)=**O**(n^logb a-δ) for some δ>0, then **T(n)=Θ(n^log a)**
+2. f(n)=O(n^logb a * (lgn)^k) for some k>=0, then **T(n)=Θ(n^logb a * (lgn)^k+1)**
+3. f(n)=**Ω**(n^logb a+δ) for some δ>0 **and af(n/b)<=(1-δ')f(n) for some δ'>0** to ensure that next level is less than the prior level， then **T(n)=Θ(f(n))**
+
 
 
