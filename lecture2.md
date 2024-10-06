@@ -41,6 +41,9 @@ applies to recurrences of the form **T(n)=aT(n/b)+f(n)**, where a≥1, b>1, f(n)
 1. f(n)=**O**(n^logb a-δ) for some δ>0, then **T(n)=Θ(n^log a)**
 2. f(n)=O(n^logb a * (lgn)^k) for some k>=0, then **T(n)=Θ(n^logb a * (lgn)^k+1)**
 3. f(n)=**Ω**(n^logb a+δ) for some δ>0 **and af(n/b)<=(1-δ')f(n) for some δ'>0** to ensure that next level is less than the prior level， then **T(n)=Θ(f(n))**
+- Ex:T(n)=4T(n/2)+n^2 case2
+- Ex:T(n)=4T(n/2)+n^2/lgn (master method does not apply) n^2lglgn
+### proof sketch
 
 
 
