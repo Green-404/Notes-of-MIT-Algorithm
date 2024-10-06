@@ -9,16 +9,16 @@
 # Problem: sorting
 ## Insertion sort
   Idea: increase the sorting part one by one
-  '''
+  ```
   Insertion-Sort(A,n)//sort A[1...n]
     for j from 2 to n
       do key = A[j]
-        i = j-1
-        while i>0 and A[i]>key
-          do A[i+1] = A[i]
-          i--
-        A[i+1] = key
-  '''
+      i = j-1
+      while i>0 and A[i]>key
+        do A[i+1] = A[i]
+        i--
+    A[i+1] = key
+  ```
 
   
 
