@@ -28,4 +28,30 @@ T(n)=φ^n φ=1+3^0.5/2
 - recursive squring **Θ(logn)** time
 - but in a real machine, float number calculation may lose some bit. Therefore, the rounded step may make mistake.
 ### recursive squring algorithm
+**Thm: (Fn+1,Fn;Fn,Fn-1)=(1,1;1,0)^n 2*2matrix**
+- T(n)=Θ(logn)
+- Proof: Induction on n
+1. Base: n=1, (1,1;1,0) is right
+2. Step: suppose n (Fn+1,Fn;Fn,Fn-1), then n+1 (Fn+2,Fn+1;Fn+1,Fn)=(Fn+1,Fn;Fn,Fn-1)*(1,1;1,0)
+
+## Matrix Multiplication
+### Standard alog
+n^2 elements, each needs n multiplications **T(n)=Θ(n^3)**
+### Divide and conquer alog
+- Idea: block the matrix to 2*2 blocked matrix
+- C[r,s;i,u]=A[a,b;c,d]*B[e,f;g,h]
+- r=a*e+b*g etc.
+  - 8 times n/2\*n/2 matrix multiplication and 4 times n/2\*n/2 matrix addition
+  - **T(n)=8T(n/2)+Θ(n^2) T(n)=n^3**
+### Strassen's alog
+- Idea: reduce # multiplications
+1. Divide A,B into 4 matrix each and compute products for P Θ(n^2)
+2. Conquer: compute 7 multiplications to produce P
+3. Combine: use addition to produce C Θ(n^2)
+- 7 times n/2\*n/2 matrix multiplication and 4 times n/2\*n/2 matrix addition
+- **T(n)=7T(n/2)+Θ(n^2) T(n)=n^log2 7**
+
+## VLSI layout(Very large-scale integration)
+- Problem: circut is a complete binary tree on n leaves in a grid with minimum area
+### Naive embedding
 
