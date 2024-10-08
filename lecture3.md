@@ -52,6 +52,31 @@ n^2 elements, each needs n multiplications **T(n)=Θ(n^3)**
 - **T(n)=7T(n/2)+Θ(n^2) T(n)=n^log2 7**
 
 ## VLSI layout(Very large-scale integration)
-- Problem: circut is a complete binary tree on n leaves in a grid with minimum area
+- Problem: circut is a complete binary tree on **n leaves** in a grid with minimum area
 ### Naive embedding
-
+- Use tree-like design like -*-
+- H(n)=H(n/2)+Θ(1)=Θ(logn)
+- W(n)=2W(n/2)+O(1)=Θ(n)
+- Area=Θ(nlogn)
+```
+  ---*---
+--*-- --*--
+*   * *   *
+```
+### H embedding
+- Goal: W(n)=Θ(root n) H(n)=Θ(root n) Area=Θ(n)
+- Assumption: if b=4,a=2,f(n) is polynomial smaller than root n, then we get it. That is, T(n)=2T(n/4)+Θ(n^0.5-δ)
+- L(n)=2L(n/4)+Θ(1)=Θ(root n)
+```
+* * * *
+*** ***
+* * * *
+ * * *
+* * * *
+*** ***
+* * * *
+Basic element:
+* *
+***
+* *
+```
