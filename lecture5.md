@@ -26,3 +26,19 @@ Proof: Number of leaves at least n!
 **Among comparison model, mergesort, heapsort and randomized quicksort are asymptotically optimal.**
 
 # Sorting in linear time
+## Counting Sort
+Assume each 1=<ai<=k and ai is integer  
+Aux storage space C[1...k]
+```
+Counting Sort:
+for i from 1 to k
+  C[i]=0            //initialization
+for j from 1 to n
+  C[A[j]]+=1        //C[key]={#key}
+for i from 2 to k
+  C[i]+=C[i-1]      //C[key]={#less than or equal to key}:the position the elements should go. 
+for j from n down to 1
+  B[C[A[j]]]=A[j]   //distribution:A[j] is at the C[A[j]] position
+  C[A[j]]-=1
+```
+T(k,n)=O(k+n)
