@@ -43,7 +43,18 @@ Running time is independent of input ordering.
 No assumption about input distribution.  
 No specific input elicit w-c behavior.  
 w-c determined only by random number generator.
-
+**Pivot on random element** *choose and exchange with the last element and run quicksort*
+## Analysis
+### indicator random variable
+x_k=1 if partition is k:n-k-1 and 0 otherwise (k=0,2,...,n-1)
+E\[x_k\]=0/*Pr{x_k=0}+1/*Pr{x_k=1}=Pr{x_k=1}=1/n
+T(n)=Σ x_k\*(T(k)+T(n-k)+Θ(n)) *If we choose x, then k has n choice, only one situation x_k is 1. Because x could only participate in one way.*  
+E\[T(n)\]=ΣE\[x_k\*(T(k)+T(n-k)+Θ(n))\] *linear probility of expection*  
+         =ΣE\[x_k\]\*E\[(T(k)+T(n-k)+Θ(n))\]  *independent:x_k is independent with the partition time*  
+         =1/nΣ*E\[(T(k)+T(n-k)+Θ(n))\]  
+         =2/nΣE\[(T(k)\]+1/n\*ΣΘ(n)  
+         =2/nΣE\[(T(k)\]+Θ(n) *arithmetic series*  
+         
 
 
 
