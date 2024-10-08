@@ -17,4 +17,15 @@
 4. So, T(n) = T(n/2) + Θ(1)
 
 ## Fibonacci numbers
+### recursive algorithm
+T(n)=φ^n φ=1+3^0.5/2
+### bottom-up algorithm
+- compute F0,F1,...,Fn
+- because Fn-1 include Fn-2's calculation
+- T(n)=Θ(n)
+### naive recursive squring algorithm
+- Fn=φ^n/5^0.5 rounded to the nearest integer
+- recursive squring **Θ(logn)** time
+- but in a real machine, float number calculation may lose some bit. Therefore, the rounded step may make mistake.
+### recursive squring algorithm
 
