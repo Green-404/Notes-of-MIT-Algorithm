@@ -3,7 +3,6 @@
 - Can we do better than Θ(nlogn)?
 # Comparison sorting(model)
 Only use comparisions to determine real order of elements.
-
 ## Decision-tree model
 ![DecisionTreeExample](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/decisiontree.png)
 In general,<a1,a2,...,an>
@@ -41,4 +40,5 @@ for j from n down to 1
   B[C[A[j]]]=A[j]   //distribution:A[j] is at the C[A[j]] position
   C[A[j]]-=1
 ```
-T(k,n)=O(k+n)
+**T(k,n)=O(k+n)**
+## 
