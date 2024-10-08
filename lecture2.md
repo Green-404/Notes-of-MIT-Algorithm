@@ -34,6 +34,7 @@ Ex: T(n)=4T(n/2)+n
 ## Recursion-tree method
 Ex: T(n)=T(n/4)+T(n/2)+n^2
 - compute it level by level and the number of level is bounded
+It's recommanded that we use tree to guess and then use substution to check and prove.
 
 ## Master method
 applies to recurrences of the form **T(n)=aT(n/b)+f(n)**, where a≥1, b>1, f(n) is asymptotically positive(f(n)>0 for n>n0)
