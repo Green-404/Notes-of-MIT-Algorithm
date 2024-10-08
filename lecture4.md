@@ -58,3 +58,4 @@ E\[T(n)\]=ΣE\[x_k\*(T(k)+T(n-k)+Θ(n))\]     *linear probility of expection*
 1. For k=0,1, absorb E\[T(k)\] into Θ(n)    *To avoid 0,1 in anlogn*
 2. Fact: Σklgk from 2 to n-1 <= 1/2 * n^2lgn - 1/8 * n^2     *integral method or use property of klogk to prove*
 3. Substitution: E\[T(n)\] <= 2/n * Σaklgk from 2 to n-1 + Θ(n) <= 2a/n * (1/2 * n^2lgn - 1/8 * n^2) + Θ(n) =anlogn - (a/4 *n - Θ(n)) <= anlogn if (a/4 *n - Θ(n)) > 0    *if a is big enough, so that a/4 * n dominate*
+- Good in virtual cache.
