@@ -41,4 +41,25 @@ for j from n down to 1
   C[A[j]]-=1
 ```
 **T(k,n)=O(k+n)**
-## 
+## Stable sort
+preserves the relative order of equal elements.  
+Exercise: counting sort is stable. What about others? Insertion sort is, mergesort is ~~not~~， quicksort isnot.  
+## Radix sort
+linear time sort big amount of numbers.  
+Idea: Sort by the least significant digit first **using stable sort**.
+### Correctness proof
+  Induct on digit position t.
+- assume by induction sorted on low-order t-1 digit
+- sort on digit t
+  - if two elems have same t th digit, because of stability, they keep the same order and the t-1 digit is sorted
+  - if different, then sort order.
+### Analysis
+Use counting sort/digit O(k+n).  
+Suppose n integers, each b bits, range from 0 to 2^b-1. 
+- Split into b/r digits each r bits long.
+- b/r #rounds; 2^r #k for a round of counting sort
+- **Time: b/r*O(n+2^r)** *we can derivate the function to seek the minimum value*
+> we hope r big beacuse of b*n/r, however, we hope r small because of 2^r/r, we don't want 2^r dominate n+2^r. Therefore, we want r to be the max in the condition of n>=2^r, that's r=logn.
+- Minimum time(r=logn)=O(b*n/logn) if number in range 0,2^b-1
+  - if number in range 0,n^d-1 (*this mean the n numbers have d digits and base n*), then time is O(dn/logn n)=O(dn), if d<=logn, we beats other algos.
+  - compared to counting sort, whose time is O(n^d+n)
