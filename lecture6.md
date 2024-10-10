@@ -40,7 +40,7 @@ Select(i,n)  //i th in n elems. The purpose is to select a good pivot.
    If i<k, then recursively select i th in the lower part.
    If i>k, then recursively select i-k th in the higher part.
 ```
-> Here, **half** of the **n/5 rounded lower** groups' **3 elements** are less than or equal to the pivot.
-> Therefore, we have a partition with left side at least 3 times n/10 rounded lower.
-> Simplification: For n>=50,  3 times n/10 rounded lower >= n/4.
+> Here, **half** of the **n/5 rounded lower** groups' **3 elements** are less than or equal to the pivot.  
+> Therefore, we have a partition with left side at least 3 times n/10 rounded lower.  
+> Simplification: For n>=50,  3 times n/10 rounded lower >= n/4.  
 > And, the worst case is that n/4 : 3n/4. That is T(n)=Θ(n)(*Divide and find medians*) + T(n/5)(*recursively find the median x*) + Θ(n)(*partition with pivot x*) +　T(3n/4)(*the biggest part of the partition*) = **Θ(n)(*using substitution*)**
