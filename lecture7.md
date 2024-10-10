@@ -19,14 +19,14 @@ Analysis:
 ### Choosing a hash function
 - should distribute keys uniformly into slots
 - regularity in key distribution should not affect uniformity
-**Division method**
+**Division method**  
 h(k)=k mod m
 - Don't pick m with small divisor d
 - Pick m = prime not too close to power of 2 or 10.
 - Example:
   - if d=2, then all even keys will be distributed into even number's slots. That means odd slots are wasted.
   - if m = 2^r, then hash doesn't depend on all bits of k. In fact, we just use lower r bits.
-**Multiplication method**
+**Multiplication method**  
 m=2^r, computer has w-bit words  
 h(k)=(A*k mod 2^w) rsh (w-r) *(A is an odd integer 2^(w-1)<A<2^w)*
 - don't pick A too close to power of 2
@@ -35,4 +35,20 @@ h(k)=(A*k mod 2^w) rsh (w-r) *(A is an odd integer 2^(w-1)<A<2^w)*
 ### resolving collisions by open addressing
 No storage for links.  
 Idea: probe the table systematically until an empty slot is found  
-h: U*{0,1,...,m-1}*(number of probe)*->{0,1,...,m-1}*(slot position)*
+h: U*{0,1,...,m-1}*(number of probe)*->{0,1,...,m-1}*(slot position)*  
+Table may fill up, so n need to less than m.  
+- Example: Insert k=496. Probe h(496,0) h(496,1) until find an empty slot. Search will use the same probe sequence.
+**Probing Strategy**
+**Linear**: h(k,i)=(h(k,0)+i) mod m
+- suffer from "primary clustering", almost all gather in an area, it takes long time to fill slots
+**Double hashing**:h(k,i)=(h1(k)+i*h2(k)) mod m
+- excellent method
+- usually pick m=2^r and h2(k) odd
+**Analysis**
+Assumption of uniform hashing: Each key equally likely to have any one of the m! permutations as its probe sequence, independent of other keys.  
+Theorem: **E[#probes]<=1/(1-α) if α<1**
+Proof: unsuccessful search(*could use indicator random variable to be more precise*)
+- 1 probe is neccessory
+- Pr[first probe collision]=n/m
+- Pr[second probe collision|first probe collision]=n-1/m-1
+- E[#probes]=1+n/m(1+n-1/m-1(1+...))<=1+α(1+α(1+...))<=1+α+α^2+...=1/(1-α)
