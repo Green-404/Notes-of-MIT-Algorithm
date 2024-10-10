@@ -37,16 +37,16 @@ No storage for links.
 Idea: probe the table systematically until an empty slot is found  
 h: U*{0,1,...,m-1}*(number of probe)*->{0,1,...,m-1}*(slot position)*  
 Table may fill up, so n need to less than m.  
-- Example: Insert k=496. Probe h(496,0) h(496,1) until find an empty slot. Search will use the same probe sequence.
-**Probing Strategy**
-**Linear**: h(k,i)=(h(k,0)+i) mod m
+- Example: Insert k=496. Probe h(496,0) h(496,1) until find an empty slot. Search will use the same probe sequence.  
+**Probing Strategy**  
+**Linear**: h(k,i)=(h(k,0)+i) mod m  
 - suffer from "primary clustering", almost all gather in an area, it takes long time to fill slots
 **Double hashing**:h(k,i)=(h1(k)+i*h2(k)) mod m
 - excellent method
 - usually pick m=2^r and h2(k) odd
-**Analysis**
-Assumption of uniform hashing: Each key equally likely to have any one of the m! permutations as its probe sequence, independent of other keys.  
-Theorem: **E[#probes]<=1/(1-α) if α<1**
+**Analysis**    
+Assumption of uniform hashing: Each key equally likely to have any one of the m! permutations as its probe sequence, independent of other keys.    
+Theorem: **E[#probes]<=1/(1-α) if α<1**  
 Proof: unsuccessful search(*could use indicator random variable to be more precise*)
 - 1 probe is neccessory
 - Pr[first probe collision]=n/m
