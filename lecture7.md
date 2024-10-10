@@ -32,7 +32,7 @@ h(k)=(A*k mod 2^w) rsh (w-r) *(A is an odd integer 2^(w-1)<A<2^w)*
 - don't pick A too close to power of 2
 - fast method: multiply mod rsh faster than division
 - Example:m=2^3, w=7, A=1011001, k=1101011
-## resolving collisions by open addressing
+# resolving collisions by open addressing
 No storage for links.  
 Idea: probe the table systematically until an empty slot is found  
 h: U*{0,1,...,m-1}*(number of probe)*->{0,1,...,m-1}*(slot position)*  
