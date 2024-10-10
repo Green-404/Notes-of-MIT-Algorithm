@@ -44,3 +44,5 @@ Select(i,n)  //i th in n elems. The purpose is to select a good pivot.
 > Therefore, we have a partition with left side at least 3 times n/10 rounded lower.  
 > Simplification: For n>=50,  3 times n/10 rounded lower >= n/4.  
 > And, the worst case is that n/4 : 3n/4. That is T(n)=Θ(n)(*Divide and find medians*) + T(n/5)(*recursively find the median x*) + Θ(n)(*partition with pivot x*) +　T(3n/4)(*the biggest part of the partition*) = **Θ(n)(*using substitution*)**
+Qusetion: Why 5 elems per group? Because 5 is the minimum number with what the algo could success.
+- If 3 each group, divide and find medians Θ(n), recurse T(n/3), partition Θ(n), search in bigger(worst-case) part T(n- n/3 /2 *2)=T(2n/3), which could not run in lenear time.
