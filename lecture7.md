@@ -43,7 +43,7 @@ Table may fill up, so n need to less than m.
 - suffer from "primary clustering", almost all gather in an area, it takes long time to fill slots
 **Double hashing**:h(k,i)=(h1(k)+i*h2(k)) mod m
 - excellent method
-- usually pick m=2^r and h2(k) odd
+- usually pick m=2^r and h2(k) odd  
 **Analysis**    
 Assumption of uniform hashing: Each key equally likely to have any one of the m! permutations as its probe sequence, independent of other keys.    
 Theorem: **E[#probes]<=1/(1-α) if α<1**  
