@@ -40,7 +40,7 @@ Since x0!=y0, there exists (x0-y0)^-1 such that a0=-(Σai*(xi-yi))*(x0-y0)^-1 (m
 #ha that cause x,y to collide=m^r*1=m^r=#H/m
 
 ## Perfect hashing
-Problems: Given n keys, construct a static hash table of size m=O(n) $ search takes O(1) time in the worst case.
+Problems: Given n keys, construct a static hash table of size m=O(n) $ search takes **O(1)** time in the worst case.
 
 Application: You want to store something that you know before in small space and want to search it fast.
 
@@ -52,3 +52,27 @@ Procedure: use hash1 function to select slot at level 1, and then use ha to find
 
 If n_i items that hash to level-1 slot i, then use mi=n_i^2 slots in level-2 table S_i.
 
+Level-2 Analysis:
+
+### Theorem: Hash n keys into m=n^2 slots, using a random hash function in a universal H. Then E[#collisions]<1/2.
+
+Proof: Prob of 2 given keys collide under h is 1/m = 1/n^2.
+
+#pairs of keys=n choose 2=n(n-1)/2
+
+E[#collisions]=1/2-1/n<1/2
+
+### Markov inequality: For random variable X>=0, Pr{X>=t}<=E[X]/t.
+Relate expectation with probability.
+
+Proof: E[X]=Σx\*Pr[X=x]>=Σx\*Pr[X=x] from t to infinite>=Σt\*Pr[X=x] from t to infinite=t\*ΣPr[X=x] from t to infinite=t\*Pr[X>=t]
+
+### Corollary: Pr{no collision} >= 1/2.
+
+Proof: Pr{>=1 collision} <= E[#collisions]/1(*Markov*) < 1/2 (*Therom above*)
+
+To find a good level-2 hash funcction, we just test a few at random. Find one quickly, since >=1/2 works.
+### Analysis of storage
+For level-1, choose m=n slots, that is O(n). Let n_i be r.v. for #keys that hash to slot i in T. Use m_i=n_i^2 slots in each level-2 table Si.
+
+E[total storage]=n+E[Σm_i]=n+E[ΣO(n_i^2)]=Θ(n) by bucket-sort analysis
