@@ -9,7 +9,7 @@ Def: Let U be a universe of keys, and H be a finite collection of hash functions
 I.e.: If we choose a hash function randomly from H, then the posibilty that collision occurs is 1/m.
 
 Therom: Choose h randomly from H, suppose hashing n keys into m slots in table T. Then, for a given key x, E[#collisions with x] < n/m(load factor of T).
-- This means that if we find a set of universal hash fuction, then it could distribute keys evenly which is our expectation.
+- **This means that if we find a set of universal hash fuction, then it could distribute keys evenly which is our expectation.**
 - Proof: Let C_x be random variable denoting total #collisions of keys in T with x, and let c_xy = 1 if h(x)=h(y) and 0 otherwise.
   - Note that E[c_xy]=1/m(because of the definition of universal hashing) and C_x=Σc_xy
   - E[C_x] = E[Σc_xy] = ΣE[c_xy](linearity of expectation) = (n-1)/m
@@ -38,4 +38,17 @@ a0*(x0-y0)+Σai*(xi-yi)=0 (mod m)
 Since x0!=y0, there exists (x0-y0)^-1 such that a0=-(Σai*(xi-yi))*(x0-y0)^-1 (mod m). This means that if two distinct elems are hashed into same slot, that means for any choice of a1...ar, exactly 1 of m choice for a0 causes x and y collide, and no collision for m-1 choices for a0.
 
 #ha that cause x,y to collide=m^r*1=m^r=#H/m
+
+## Perfect hashing
+Problems: Given n keys, construct a static hash table of size m=O(n) $ search takes O(1) time in the worst case.
+
+Application: You want to store something that you know before in small space and want to search it fast.
+
+Idea: Two level scheme with universal hashing at both levels. Use hash to replace the original chaining method. No collision at level 2.
+
+Structure: the elem at level 1 consists of the random number a(universal hash) and a pointer to level 2 hash table.
+
+Procedure: use hash1 function to select slot at level 1, and then use ha to find slot at level 2.
+
+If n_i items that hash to level-1 slot i, then use mi=n_i^2 slots in level-2 table S_i.
 
