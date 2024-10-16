@@ -1,5 +1,5 @@
 # Amortized Analysis
-## How large should a hash table be?
+## Analysis Example: How large should a hash table be?
 As large as possible, more fast to search. 
 
 As small as possible, less space to allocate.
