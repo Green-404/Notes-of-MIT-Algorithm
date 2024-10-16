@@ -37,11 +37,11 @@ Accounting and potential analysis are more precise because they allocate specifi
 Calculate the total and compute the expectation
 
 Example:
-'''
+```
 c_i = cost of i th insert = i,if i-1 is the power of 2, 1, else
 Cost of n inserts = Σc_i = n + Σ2^j(j from 0 to log(n-1) rounded lower) <= 3n = Θ(n)
 Thus, average cost for insert is Θ(1)
-'''
+```
 ### Accounting analysis
 - Charge i th op a **fictitious amortized cost** c_i(1 dollar pays for 1 unit of work)
 - Fee is consumed to perform op.
