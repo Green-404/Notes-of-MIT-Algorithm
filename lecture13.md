@@ -88,3 +88,6 @@ n Inserts cost Θ(n) in the worst case
 ```
 
 Conclusion: Amortized costs provide a clean abstraction for data structure performance.
+
+
+Different potential functions or accounting costs may yield different bounds.
