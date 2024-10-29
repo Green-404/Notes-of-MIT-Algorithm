@@ -50,3 +50,41 @@ Thus, average cost for insert is Θ(1)
 **Provide an upper bound**: Must have Σc_i <= Σamortized c_i from 1 to n for every n
 
 ### Potential analysis
+Bank account viewed as potential energy of dynamic set
+
+Framework:
+- Start with data structure D0
+- op i transforms Di-1 to Di
+- Cost of op i is c_i
+- Define **potential fuction** be F:{Di}->R, $ F(D0)=0 and F(Di)>=0 for every i.
+- define the amortized cost C_i is **C_i = c_i + F(Di) - F(Di-1)** *change of potential + c_i*
+  - If ΔF>0, then C_i>c_i, which means charge more than need, then op i stores work in data structure for later ops.
+  - If ΔF<0, then C_i<c_i, which means charge less than need, then op i delivers up work in data structure to help pay for op i.
+  - Overall, the potential is the bank, when we need, we store or deliver op.
+
+Difference:
+
+Accounting method first decides an amortized cost, and then analyse the bank account to make sure non-negtive.
+
+Potential method first decides the bank, and then calculate the amortized cost.
+
+Total amortized cost of n ops is:
+
+ΣC_i = Σc_i + F(Dn) - F(D0) >= Σc_i
+
+Therefore, potential method provides an upper bound.
+
+Example:
+```
+Define F(Di)=2i-2^(logi rounded above) (Assume 2^log0 = 0)
+Note: F(D0)=0 F(Di)>=0 for every i[at most 2i-2^(logi + 1)=0]
+
+Amort cost of i th Insert:
+C_i = c_i + F(Di) - F(Di-1)
+c_i = i if i-1=2^k, 1 else.
+Then, if i-1=2^k, C_i = i + 2 - 2(i-1) + (i-1) = 3
+      else, C_i = 1 + 2 - 2^(ceiling of logi) + 2^(ceiling of logi-1) = 3
+n Inserts cost Θ(n) in the worst case
+```
+
+Conclusion: Amortized costs provide a clean abstraction for data structure performance.
