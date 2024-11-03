@@ -58,6 +58,10 @@
 - Θ-notation
   - drop low-order terms and ignore leading constants
   - `provide both upper and lower bound`
+- O-notation
+  - `provide upper bound`
+- Ω-notation
+  - `provide lower bound`
 
 # Recurrence
 ## Recursion tree
