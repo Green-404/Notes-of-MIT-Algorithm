@@ -63,6 +63,13 @@
 ## Recursion tree
 > this is the task of next class~~
 
+# Prove the correctness of a recursive algorithm
+
+Contains 3 step: `Initialization, Maintenance, Termination`
+- Initialization need to prove the basic case to be correct according to the problem
+- Maintentance need to prove the recurence keep the correctness when conquer
+- Termination need to prove when the program terminates, it works the right answer.
+
 
 
   
