@@ -9,7 +9,7 @@
 # Problem: sorting
 ## Insertion sort
   - **Idea: increase the sorted part one by one**
-  - ==The main idea is to keep the front subarray sorted, find the other's position and insert==
+  - `The main idea is to keep the front subarray sorted, find the other's position and insert`
   ```
   Insertion-Sort(A,n)//sort A[1...n]
     for j from 2 to n
@@ -27,7 +27,7 @@
     - **Σ Θ(j) = Θ(j^2)**
 ## Merge sort
   - Idea: **Recursive program**
-  - ==The main idea is to decrease the problem's scale by using divide and conquer==
+  - `The main idea is to decrease the problem's scale by using divide and conquer`
   ```
   Merge-Sort(A,1,n)
   1. If n = 1, done
@@ -57,7 +57,7 @@
 ## Asymptotic notation
 - Θ-notation
   - drop low-order terms and ignore leading constants
-  - ==provide both upper and lower bound==
+  - `provide both upper and lower bound`
 
 # Recurrence
 ## Recursion tree
