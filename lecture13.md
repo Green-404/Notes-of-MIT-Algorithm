@@ -36,6 +36,8 @@ Accounting and potential analysis are more precise because they allocate specifi
 ### Aggregate analysis
 Calculate the total and compute the expectation
 
+`Calculate precisely`
+
 Example:
 ```
 c_i = cost of i th insert = i,if i-1 is the power of 2, 1, else
@@ -43,6 +45,9 @@ Cost of n inserts = Σc_i = n + Σ2^j(j from 0 to log(n-1) rounded lower) <= 3n 
 Thus, average cost for insert is Θ(1)
 ```
 ### Accounting analysis
+
+`Assume an amortized cost and prove that using this the data structure bank will never be negative. Then it will be an upper bound.`
+
 - Charge i th op a **fictitious amortized cost** c_i(1 dollar pays for 1 unit of work)
 - Fee is consumed to perform op.
 - Unused amount stored in "bank" for use by later ops. Bank balance must not go negative.
@@ -50,6 +55,9 @@ Thus, average cost for insert is Θ(1)
 **Provide an upper bound**: Must have Σc_i <= Σamortized c_i from 1 to n for every n
 
 ### Potential analysis
+
+`Use a qualified potential function P(P0=0, Pi>=0 always) and then figure out every kind of operation under every condition, what is the amortized cost of it. amortized cost = cost + ΔP.`
+
 Bank account viewed as potential energy of dynamic set
 
 Framework:
