@@ -18,6 +18,7 @@ In general,<a1,a2,...,an>
 **All the sorting algorithm can be transformed to the decision tree.**
 ### Lower bound on decision tree sorting
 **Any decision tree sorting n elements, its height is Ω(nlogn).**
+
 Proof: Number of leaves at least n!
 1. height h has at most 2^h leaves, then **n!<=2^h**
 2. Then, h>=logn!>=log(n/e)^n=nlogn-nloge.  *Stiring formula:n!>=log(n/e)^n*
@@ -27,6 +28,7 @@ Proof: Number of leaves at least n!
 # Sorting in linear time
 ## Counting Sort
 Assume each 1=<ai<=k and ai is integer  
+
 Aux storage space C[1...k]
 ```
 Counting Sort:
@@ -43,9 +45,11 @@ for j from n down to 1
 **T(k,n)=O(k+n)**
 ## Stable sort
 preserves the relative order of equal elements.  
+
 Exercise: counting sort is stable. What about others? Insertion sort is, mergesort is ~~not~~， quicksort isnot.  
 ## Radix sort
 linear time sort big amount of numbers.  
+
 Idea: Sort by the least significant digit first **using stable sort**.
 ### Correctness proof
   Induct on digit position t.
@@ -55,6 +59,7 @@ Idea: Sort by the least significant digit first **using stable sort**.
   - if different, then sort order.
 ### Analysis
 Use counting sort/digit O(k+n).  
+
 Suppose n integers, each b bits, range from 0 to 2^b-1. 
 - Split into b/r digits each r bits long.
 - b/r #rounds; 2^r #k for a round of counting sort
