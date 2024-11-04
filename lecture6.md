@@ -35,7 +35,7 @@ Unlucky case: T(n)=T(n-1)+Θ(n)=Θ(n^2)  (arith series)
   - E[T(n)]<=2/n\*Σ E[T(k)] + Θ(n) <= 2/n\*Σ ck + Θ(n) <= 3c/4*n + Θ(n) = cn-(cn/4 - Θ(n)) <= cn if cn/4 - Θ(n)>0, that is for c sufficient large.
 - **Time: expected time Θ(n); worst-case Θ(n^2)**
 ## Worst-case linear time order statistics
-Idea: generate good pivot --- recurse
+Idea: generate good pivot(median) to avoid worst case mentioned above --- recurse
 ```
 Select(i,n)  //i th in n elems. The purpose is to select a good pivot.
 1. Divide n elems into n/5 rounded lower groups with 5 elems each. Find the median in each group.  //Θ(n)
