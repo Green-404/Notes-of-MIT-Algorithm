@@ -49,10 +49,12 @@ It's recommanded that we use tree to guess and then use substution to check and 
 applies to recurrences of the form **T(n)=aT(n/b)+f(n)**, where a≥1, b>1, f(n) is asymptotically positive(f(n)>0 for n>n0)
 ### compare f(n) with n^logb a
 1. f(n)=**O**(n^logb a-δ) for some δ>0, then **T(n)=Θ(n^logb a)**
-2. f(n)=O(n^logb a * (lgn)^k) for some k>=0, then **T(n)=Θ(n^logb a * (lgn)^k+1)**
+2. f(n)=O(n^logb a * (lgn)^k) for some `k>=0`, then **T(n)=Θ(n^logb a * (lgn)^k+1)**
 3. f(n)=**Ω**(n^logb a+δ) for some δ>0 **and af(n/b)<=(1-δ')f(n) for some δ'>0** to `ensure that next level is less than the prior level`， then **T(n)=Θ(f(n))**
 - Ex:T(n)=4T(n/2)+n^2 case2
 - Ex:T(n)=4T(n/2)+n^2/lgn (master method does not apply) n^2lglgn
+
+`You need to pay attention that the third case is for k>=0, for negative k, we need to use other way to calculate.` 
 ### proof sketch
 
 
