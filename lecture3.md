@@ -9,6 +9,11 @@
 2. Conquer: recurse in one subarray
 3. Combine: nothing
 
+### Binary search with prediction
+If we could not figure out the length of the array we would like to search. Then we need to have a predictor.
+
+The predictor returns the best guess for the start position h. And then we probe h+2, h+4, until we find a range whose length is known and the key is in it, then use simple binary search.
+
 ## Powering a number
 - given number x, integer n>=0, compute x^n
 1. divide on n
@@ -45,11 +50,26 @@ n^2 elements, each needs n multiplications **T(n)=Θ(n^3)**
   - **T(n)=8T(n/2)+Θ(n^2) T(n)=n^3**
 ### Strassen's alog
 - Idea: reduce # multiplications
-1. Divide A,B into 4 matrix each and compute products for P Θ(n^2)
+1. Divide A,B into 4 matrix each and compute products for P (use simple add and minus) Θ(n^2)
 2. Conquer: compute 7 multiplications to produce P
 3. Combine: use addition to produce C Θ(n^2)
 - 7 times n/2\*n/2 matrix multiplication and 4 times n/2\*n/2 matrix addition
 - **T(n)=7T(n/2)+Θ(n^2) T(n)=n^log2 7**
+
+## Polynomial multiplication
+use divide and conquer
+### simple way
+```
+A(x) = P(x) + x^(n/2) * Q(x)
+B(x) = R(x) + x^(n/2) * S(x)
+C(x) = P(x)·R(x) + xn/2(P(x)·S(x) + R(x)·Q(x)) + xnQ(x)·S(x)
+```
+
+T(n)=4T(n/2)+Θ(n).  Therefore, T(n) = Θ(n2)
+### clever way
+Similar to matrix calculation, let m1 = (P+Q)*(R+S), m2 = PR, m3 = QS, then PS+RQ = m1-m2-m3
+
+T(n)=3T(n/2)+Θ(n).  Therefore, T(n) = Θ(n ^ log2 3)
 
 ## VLSI layout(Very large-scale integration)
 - Problem: circut is a complete binary tree on **n leaves** in a grid with minimum area
