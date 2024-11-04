@@ -19,11 +19,16 @@ Unlucky case: T(n)=T(n-1)+Θ(n)=Θ(n^2)  (arith series)
 - Let T(n) be the random variable for running time of RandomizedSelect on input of size n. Generating random number is independent with each other.
 - Define indicator random variable Xk for k=0,...,n-1, Xk=1 if Partition generate k:n-1-k splits, else 0.
 - T(n)=Σ Xk * [T(max{k,n-1-k}) + Θ(n)]
-E[T(n)]=E[Σ Xk * [T(max{k,n-1-k}) + Θ(n)]]  
-       =Σ E[Xk] * E[T(max{k,n-1-k}) + Θ(n)](*linear and independent property: the first random number is independent with the following steps' random numbers which decide the time of T(max)*)  
-       =Σ 1/n * E[T(max{k,n-1-k}) + Θ(n)]  
-       =Σ 1/n * E[T(max{k,n-1-k})] + Σ 1/n * Θ(n)  
-       <=2/n * Σ E[T(k)](*k from n/2 rounded to lower integer to n-1*) + Θ(n)  
+
+- E[T(n)]=E[Σ Xk * [T(max{k,n-1-k}) + Θ(n)]]  
+
+         =Σ E[Xk] * E[T(max{k,n-1-k}) + Θ(n)](*linear and independent property: the first random number is independent with the following steps' random numbers which decide the time of T(max)*)  
+
+         =Σ 1/n * E[T(max{k,n-1-k}) + Θ(n)]
+      
+         =Σ 1/n * E[T(max{k,n-1-k})] + Σ 1/n * Θ(n)  
+
+         <=2/n * Σ E[T(k)](*k from n/2 rounded to lower integer to n-1*) + Θ(n)  
 - Claim: E[T(n)]<=cn for sufficient large constant c>0
 - Proof: Substitution
   - Assume true for k<n
@@ -44,6 +49,7 @@ Select(i,n)  //i th in n elems. The purpose is to select a good pivot.
 > Therefore, we have a partition with left side at least 3 times n/10 rounded lower.  
 > Simplification: For n>=50,  3 times n/10 rounded lower >= n/4.  
 > And, the worst case is that n/4 : 3n/4. That is T(n)=Θ(n)(*Divide and find medians*) + T(n/5)(*recursively find the median x*) + Θ(n)(*partition with pivot x*) +　T(3n/4)(*the biggest part of the partition*) = **Θ(n)(*using substitution*)**
+
 Qusetion: Why 5 elems per group? Because 5 is the minimum number with what the algo could success.
 - If 3 each group, divide and find medians Θ(n), recurse T(n/3), partition Θ(n), search in bigger(worst-case) part T(n- n/3 /2 *2)=T(2n/3), which could not run in lenear time.
 
