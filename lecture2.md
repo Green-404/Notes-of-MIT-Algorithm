@@ -106,7 +106,7 @@ Ex: T(n)=4T(n/2)+n
 
 Ex: T(n)=T(n/4)+T(n/2)+n^2
 - compute it level by level and the number of level is bounded
-It's recommanded that we use tree to guess and then use substution to check and prove.
+`It's recommanded that we use tree to guess and then use substution to check and prove.`
 
 ## Master method
 
@@ -119,10 +119,10 @@ applies to recurrences of the form **T(n)=aT(n/b)+f(n)**, where a≥1, b>1, f(n)
 3. f(n)=**Ω**(n^logb a+δ) for some δ>0 **and af(n/b)<=(1-δ')f(n) for some δ'>0** to `ensure that next level is less than the prior level`， then **T(n)=Θ(f(n))**
 - Ex:T(n)=4T(n/2)+n^2 case2
 - Ex:T(n)=4T(n/2)+n^2/lgn (master method does not apply) n^2lglgn
-
+## Special case
 `You need to pay attention that the third case is for k>=0, for negative k, we need to use other way to calculate.` 
 
-Example:
+### Example1
 
 For T(n) = 3T(n/3) + n/lgn, we have k = -1, couldn't use master therom.
 
@@ -133,6 +133,13 @@ Expand it, we have T(k) = 3^k/lg3 * Σ(1/i) i from k to 1
 Σ(1/i) i from k to 1 could be approximated into the integration of 1/i, that is logk.
 
 Then, T(k) = 3^k/lg3 * Σ(1/i) i from k to 1 = 3^k/lg3 * logk = Θ(nloglogn)
+
+### Example2
+T(n) = 3T(n/3 - 2) + n/2
+
+The minus constant don't affect, it is just equal to T(n) = 3T(n/3) + n/2
+
+`In lots of cases, we use integration to substitute Σ`
 
 
 
