@@ -1,6 +1,6 @@
 # Quick Sort---Divide and Conquer
 Sorts in place. Efficient in storage and practice.
-1. Divide: **Partition** array into 2 subarrays around pivot x such that **elements in lower subarray<=x<=elements in upper subarray**.\
+1. Divide: **Partition** array into 2 subarrays around pivot x such that **elements in lower subarray<=x<=elements in upper subarray**
 2. Conquer: recursively sort the 2 subarrays.
 3. Combine: trivial
 ## Partition
@@ -47,15 +47,29 @@ w-c determined only by random number generator.
 ## Analysis
 ### indicator random variable
 x_k=1 if partition is k:n-k-1 and 0 otherwise (k=0,2,...,n-1)
-E\[x_k\]=0/*Pr{x_k=0}+1/*Pr{x_k=1}=Pr{x_k=1}=1/n
+
+E\[x_k\]=0\*Pr{x_k=0}+1\*Pr{x_k=1}=Pr{x_k=1}=1/n
+
 T(n)=Σ x_k\*(T(k)+T(n-k)+Θ(n))   *If we choose x, then k has n choice, only one situation x_k is 1. Because x could only participate in one way.*  
+
 E\[T(n)\]=ΣE\[x_k\*(T(k)+T(n-k)+Θ(n))\]     *linear probility of expection*  
-         =ΣE\[x_k\]\*E\[(T(k)+T(n-k)+Θ(n))\]      *independent:x_k is independent with the partition time*  
+
+         =ΣE\[x_k\]\*E\[(T(k)+T(n-k)+Θ(n))\]      *independent:x_k is independent with the partition time* 
+         
          =1/nΣ*E\[(T(k)+T(n-k)+Θ(n))\]  
+         
          =2/nΣE\[(T(k)\]+1/n\*ΣΘ(n)  
+         
          =2/nΣE\[(T(k)\]+Θ(n)     *arithmetic series*  
+         
 - Prove E\[T(n)\]<=anlogn for constant a>0 (use substitution)  
 1. For k=0,1, absorb E\[T(k)\] into Θ(n)    *To avoid 0,1 in anlogn*
 2. Fact: Σklgk from 2 to n-1 <= 1/2 * n^2lgn - 1/8 * n^2     *integral method or use property of klogk to prove*
-3. Substitution: E\[T(n)\] <= 2/n * Σaklgk from 2 to n-1 + Θ(n) <= 2a/n * (1/2 * n^2lgn - 1/8 * n^2) + Θ(n) =anlogn - (a/4 *n - Θ(n)) <= anlogn if (a/4 *n - Θ(n)) > 0    *if a is big enough, so that a/4 * n dominate*
+3. Substitution: E\[T(n)\] <= 2/n * Σaklgk from 2 to n-1 + Θ(n)
+
+                           <= 2a/n * (1/2 * n^2lgn - 1/8 * n^2) + Θ(n)
+
+                            = anlogn - (a/4 *n - Θ(n))
+
+                           <= anlogn if (a/4 *n - Θ(n)) > 0    *if a is big enough, so that a/4 * n dominate*
 - Good in virtual cache.
