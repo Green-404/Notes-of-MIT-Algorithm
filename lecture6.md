@@ -46,3 +46,12 @@ Select(i,n)  //i th in n elems. The purpose is to select a good pivot.
 > And, the worst case is that n/4 : 3n/4. That is T(n)=Θ(n)(*Divide and find medians*) + T(n/5)(*recursively find the median x*) + Θ(n)(*partition with pivot x*) +　T(3n/4)(*the biggest part of the partition*) = **Θ(n)(*using substitution*)**
 Qusetion: Why 5 elems per group? Because 5 is the minimum number with what the algo could success.
 - If 3 each group, divide and find medians Θ(n), recurse T(n/3), partition Θ(n), search in bigger(worst-case) part T(n- n/3 /2 *2)=T(2n/3), which could not run in lenear time.
+
+## Variant
+For two ordered array, length m and n. find k-th small element in A and B in O(logm+logn) time.
+
+Like the i-th order, just divide and conquer in A and B.
+
+![](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/findkth.png)
+
+The main idea is to partition both A and B, decrease the scale by decrease the range: aleft,aright and bleft,bright.
