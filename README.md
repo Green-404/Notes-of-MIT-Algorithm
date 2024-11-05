@@ -17,4 +17,6 @@ For self-learning and maybe it will be helpful to you.
 
 [Lecture8: Hashing: universal hashing & perfect hashing to avoid collision at level-2](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/lecture8.md)
 
-[Lecture15: Calculate amortized cost of a sequence of operations: 3 methods](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/lecture13.md)
+[Lecture13: Calculate amortized cost of a sequence of operations: 3 methods](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/lecture13.md)
+
+[Lecture15: Dynamic Programming: Take LCS as example](https://github.com/Green-404/Notes-of-MIT-Algorithm/edit/main/lecture15.md)
