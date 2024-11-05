@@ -65,13 +65,26 @@ Worst case: x[i]!=x[j] for all i,j. Binary tree with and i+j height, then we wor
 ```
 LCS(x,y,i,j)
   if c[i,j] != nil
-    return
+    return c[i,j]
   if x[i]=y[j]
     then c[i,j] <- LCS(x,y,i-1,j-1)+1
   else
     c[i,j] <- max{LCS(x,y,i-1,j)+LCS(x,y,i,j-1)}
   return c[i,j]
 ```
+Time=O(mn)=const work per entry
+
+Space=O(mn)
+
+### DP alg
+Idea: Compute the table `bottom-up`.
+
+Reconstruct LCS by tracing backwards
+
+Time=Θ(mn)
+
+Space=O(min{m,n}) 1row and O(1)elem(just above 2 elements and 1 end number)
+
 ## DP hallmark!!!
 ### Optimal substructure
 
