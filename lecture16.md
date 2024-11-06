@@ -46,13 +46,18 @@ while Q!=empty:
 ```
 
 Analysis:
+
 init key and Extract-Min: O(V) time
 
 Degree(u) update each time. Then O(E) implict decrease keys.
 
 Time=Θ(V\*T(Extract-Min)+E*T(Decrease-Key))
 
-For array,
+For array, T(Extract-Min) need O(V) and T(Decrease-Key）need O(1)
+
+For binary heap, T(Extract-Min) need O(logV) and T(Decrease-Key）need O(logV)
+
+For fibonacci heap, T(Extract-Min) need O(logV) and T(Decrease-Key）need O(1)
 
 
 
