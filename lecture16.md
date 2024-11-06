@@ -39,10 +39,21 @@ key[s]<-0 for arbitrary s  //randomly select
 
 while Q!=empty:
   u<-Extract-Min(Q)      //minimum edge
-  for each v in Adj[u]    //upgrade Q
+  for each v in Adj[u]    //update Q
     if v in Q and key[v]>w(u,v)
         key[v]=w(u,v)
         P[v]=u            //record the locally front vertex, set pointer back
 ```
-      
+
+Analysis:
+init key and Extract-Min: O(V) time
+
+Degree(u) update each time. Then O(E) implict decrease keys.
+
+Time=Θ(V\*T(Extract-Min)+E*T(Decrease-Key))
+
+For array,
+
+
+
       
