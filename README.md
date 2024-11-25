@@ -20,3 +20,5 @@ For self-learning and maybe it will be helpful to you.
 [Lecture13: Calculate amortized cost of a sequence of operations: 3 methods](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/lecture13.md)
 
 [Lecture15: Dynamic Programming: Take LCS as example](https://github.com/Green-404/Notes-of-MIT-Algorithm/edit/main/lecture15.md)
+
+[Lecture16: Greedy Algorithm: Take minimum spanning tree for example](https://github.com/Green-404/Notes-of-MIT-Algorithm/blob/main/lecture16.md)
